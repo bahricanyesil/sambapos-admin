@@ -96,17 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
         height: Sc.height! * 6.7,
         width: Sc.width! * 30,
         child: RoundedButton(
-          onPressed: () async {
-            if (formKey.currentState != null) {
-              if (!formKey.currentState!.validate()) return;
-            }
-            var result = await login(email, password, context);
-            if (result == 1) {
-              await Navigator.of(context).pushNamed(unauthorizedHomeRoute);
-            } else if (result == 2) {
-              await Navigator.of(context).pushNamed(authorizedHomeRoute);
-            }
-          },
+          onPressed: () => login(email, password, context, formKey),
           text: getText(context, 'login'),
         ));
   }

@@ -13,5 +13,7 @@
   "wrong_password": "Hatalı veya eksik bir şifre girdiniz\ntekrar deneyin.",
   "user_not_found": "Bu emaile ait bir kullanıcı bulunamadı.",
   "ok": "Tamamdır",
-  "enter_pin": "Pin Kodunu Girin"
+  "enter_pin": "Pin Kodunu Girin",
+  "short_ok": "Ok",
+  "wrong_pin": "Hatalı bir pin kodu girdiniz."
 }

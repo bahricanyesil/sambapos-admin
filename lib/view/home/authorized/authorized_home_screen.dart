@@ -6,6 +6,9 @@ import './components/pin_item.dart';
 import '../../../core/init/helper/get_text.dart';
 import '../../../core/init/screen/screen_config.dart';
 import '../../../core/widgets/app_bar.dart';
+import 'functions/confirm_pin.dart';
+import 'functions/delete_pin.dart';
+import 'functions/set_pin.dart';
 
 class AuthorizedHomeScreen extends StatefulWidget {
   @override
@@ -36,7 +39,11 @@ class _AuthorizedHomeScreenState extends State<AuthorizedHomeScreen> {
             Container(
                 height: Sc.height! * 60,
                 width: Sc.width! * 35,
-                child: NumberPad(setPin: setPin))
+                child: NumberPad(
+                  setPin: setPinSetState,
+                  deletePin: deletePinSetState,
+                  confirmPin: confirmPinSetState,
+                ))
           ],
         ),
       ),
@@ -62,34 +69,36 @@ class _AuthorizedHomeScreenState extends State<AuthorizedHomeScreen> {
                 changeIndex: changeIndex,
                 index: index,
                 focusNode: focusNodes[index],
-                setPin: setPin);
+                setPin: setPinSetState);
           })
         ],
       ),
     );
   }
 
-  void setPin(String text, [int? index]) {
+  void setPinSetState(String text, [int? index]) {
     setState(() {
-      if (index != null) {
-        currentIndex = index;
-      }
-      currentPins[currentIndex] = text;
-      controllers[currentIndex].text = text;
-      controllers[currentIndex].selection = TextSelection.fromPosition(
-          TextPosition(offset: controllers[currentIndex].text.length));
-      if (currentIndex != controllers.length - 1) {
-        currentIndex = currentIndex + 1;
-      }
-      focusNodes[currentIndex].requestFocus();
+      currentIndex = setPin(
+          text, index, currentIndex, currentPins, controllers, focusNodes);
     });
-    print(currentPins);
   }
 
-  // ignore: use_setters_to_change_properties
+  void deletePinSetState() {
+    setState(() {
+      currentIndex =
+          deletePin(currentIndex, currentPins, controllers, focusNodes);
+    });
+  }
+
+  void confirmPinSetState() {
+    setState(() {
+      confirmPin(currentPins, context);
+    });
+  }
+
   void changeIndex(int index) {
     currentIndex = index;
-    controllers[currentIndex].selection = TextSelection.fromPosition(
-        TextPosition(offset: controllers[currentIndex].text.length));
+    controllers[currentIndex].selection =
+        TextSelection.fromPosition(TextPosition(offset: 0));
   }
 }

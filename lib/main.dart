@@ -66,7 +66,7 @@ class App extends StatelessWidget {
           const Locale('en', 'US'),
           const Locale('tr', 'TR'),
         ],
-        initialRoute: authorizedHomeRoute,
+        initialRoute: loginRoute,
         onUnknownRoute: (settings) {
           return MaterialPageRoute(builder: (context) => LoginScreen());
         },

@@ -14,17 +14,17 @@ class NumberItem extends StatelessWidget {
           shape: BoxShape.circle,
           color: Theme.of(context).primaryColor.withOpacity(.3)),
       alignment: Alignment.center,
-      child: button(),
+      child: button(context),
     );
   }
 
-  Widget button() {
+  Widget button(context) {
     return MaterialButton(
       padding: EdgeInsets.all(Sc.width! * .5),
       onPressed: onPressedFunc,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(Sc.width! * 2.6),
-      ),
+      splashColor: Theme.of(context).canvasColor,
+      highlightColor: Colors.transparent,
+      hoverColor: Colors.transparent,
       height: Sc.height! * 12,
       child: Text(
         text,
