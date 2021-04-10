@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../core/init/helper/get_text.dart';
-import '../../core/widgets/app_bar.dart';
-import '../sidebar/sidebar.dart';
+import '../../../core/init/helper/get_text.dart';
+import '../../../core/widgets/app_bar.dart';
+import './sidebar/sidebar.dart';
 
-class HomeScreen extends StatelessWidget {
+class UnauthorizedHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

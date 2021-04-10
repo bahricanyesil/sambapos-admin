@@ -12,5 +12,6 @@
   "login": "Giriş Yap",
   "wrong_password": "Hatalı veya eksik bir şifre girdiniz\ntekrar deneyin.",
   "user_not_found": "Bu emaile ait bir kullanıcı bulunamadı.",
-  "ok": "Tamamdır"
+  "ok": "Tamamdır",
+  "enter_pin": "Pin Kodunu Girin"
 }

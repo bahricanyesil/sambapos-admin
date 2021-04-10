@@ -96,7 +96,7 @@ final ThemeData lightTheme = ThemeData(
     ),
     headline4: TextStyle(
       color: Colors.black87,
-      fontSize: Sc.text! * 1.7,
+      fontSize: Sc.text! * 1.6,
       fontWeight: FontWeight.w400,
       fontStyle: FontStyle.normal,
     ),

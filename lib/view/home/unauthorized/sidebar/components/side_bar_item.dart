@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../../core/init/screen/screen_config.dart';
+import '../../../../../core/init/screen/screen_config.dart';
 
 class SideBarItem extends StatelessWidget {
   final IconData icon;
   final String title;
-  final onPressed;
+  final Function() onPressed;
   const SideBarItem(
       {required this.icon, required this.title, required this.onPressed});
 

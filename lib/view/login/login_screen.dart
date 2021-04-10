@@ -102,9 +102,9 @@ class _LoginScreenState extends State<LoginScreen> {
             }
             var result = await login(email, password, context);
             if (result == 1) {
-              await Navigator.of(context).pushNamed(homeRoute);
+              await Navigator.of(context).pushNamed(unauthorizedHomeRoute);
             } else if (result == 2) {
-              await Navigator.of(context).pushNamed(homeRoute);
+              await Navigator.of(context).pushNamed(authorizedHomeRoute);
             }
           },
           text: getText(context, 'login'),

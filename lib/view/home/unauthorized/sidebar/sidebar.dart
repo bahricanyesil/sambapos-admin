@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../core/init/helper/get_text.dart';
-import '../../core/init/screen/screen_config.dart';
-import '../../core/widgets/divider.dart';
+import '../../../../core/init/helper/get_text.dart';
+import '../../../../core/init/screen/screen_config.dart';
+import '../../../../core/widgets/divider.dart';
 import 'components/side_bar_item.dart';
 
 class SideBar extends StatelessWidget {

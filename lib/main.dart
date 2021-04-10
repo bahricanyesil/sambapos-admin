@@ -7,7 +7,7 @@ import 'core/init/screen/screen_config.dart';
 import 'core/localization/localization_delegate.dart';
 import 'core/provider/language_provider.dart';
 import 'core/theme/light_theme.dart';
-import 'view/home/home_screen.dart';
+import 'view/login/login_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -66,9 +66,9 @@ class App extends StatelessWidget {
           const Locale('en', 'US'),
           const Locale('tr', 'TR'),
         ],
-        initialRoute: loginRoute,
+        initialRoute: authorizedHomeRoute,
         onUnknownRoute: (settings) {
-          return MaterialPageRoute(builder: (context) => HomeScreen());
+          return MaterialPageRoute(builder: (context) => LoginScreen());
         },
       );
     });
