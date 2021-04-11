@@ -84,6 +84,7 @@ class _EditUserState extends State<EditUser> {
         authorityColumn(context),
         Spacer(),
         DefaultButtonRow(
+            formKey: emailFormKey,
             routeName: unauthorizedHomeRoute,
             spaceConst: 5,
             onPressed: saveInfo,
@@ -100,7 +101,10 @@ class _EditUserState extends State<EditUser> {
         textPart(context, 'authority'),
         SizedBox(height: Sc.height! * 1.8),
         Text(getAuthority(context, userIndex),
-            style: Theme.of(context).textTheme.headline4)
+            style: Theme.of(context)
+                .textTheme
+                .headline4!
+                .copyWith(fontSize: Sc.text! * 1.6))
       ],
     );
   }
@@ -125,7 +129,11 @@ class _EditUserState extends State<EditUser> {
       children: [
         Icon(role.icon, size: Sc.image! * 2.6),
         SizedBox(width: Sc.width! * .6),
-        Text(role.name, style: Theme.of(context).textTheme.headline4),
+        Text(role.name,
+            style: Theme.of(context)
+                .textTheme
+                .headline4!
+                .copyWith(fontSize: Sc.text! * 1.6)),
         SizedBox(width: Sc.width! * 1.6),
         changeRoleButton(context, role.name)
       ],
@@ -137,7 +145,8 @@ class _EditUserState extends State<EditUser> {
       onPressed: () => showChooseDialog(
           context, getText(context, 'choose_role'), name, setRole),
       child: Text(getText(context, 'change'),
-          style: TextStyle(color: Theme.of(context).primaryColor)),
+          style: TextStyle(
+              color: Theme.of(context).primaryColor, fontSize: Sc.text! * 1.6)),
     );
   }
 
@@ -145,14 +154,16 @@ class _EditUserState extends State<EditUser> {
     return Text(getText(context, text),
         style: Theme.of(context).textTheme.headline3!.copyWith(
             color: Theme.of(context).primaryColor,
-            decoration: TextDecoration.underline));
+            decoration: TextDecoration.underline,
+            fontSize: Sc.text! * 2));
   }
 
   Widget emailInfo(context) {
     return Text(getText(context, 'email'),
         style: Theme.of(context).textTheme.headline3!.copyWith(
             color: Theme.of(context).primaryColor,
-            decoration: TextDecoration.underline));
+            decoration: TextDecoration.underline,
+            fontSize: Sc.text! * 2));
   }
 
   void saveInfo() {

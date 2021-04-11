@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:sambapos_admin/core/widgets/default_button_row.dart';
 
 import '../../dummy/dummy_roles.dart';
-import '../../init/helper/get_text.dart';
 import '../../init/screen/screen_config.dart';
+import '../default_button_row.dart';
 
 class InfoChooseDialog extends StatefulWidget {
   final String value;
   final String title;
   final Function setValue;
-
   const InfoChooseDialog(
       {required this.setValue, required this.value, required this.title});
 
@@ -44,46 +42,51 @@ class _InfoChooseDialogState extends State<InfoChooseDialog> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            widget.title,
-            style: Theme.of(context).textTheme.headline3!.copyWith(
-                color: Theme.of(context).primaryColor,
-                fontSize: Sc.text! * 1.65),
-          ),
-          SizedBox(
-            height: Sc.height! * 2,
-          ),
-          ListView.builder(
-              physics: BouncingScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: roles.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.only(top: Sc.height!),
-                  child: Row(
-                    children: [
-                      Radio(
-                        activeColor: Theme.of(context).accentColor,
-                        value: index,
-                        groupValue: _radioValue,
-                        onChanged: (val) => _handleRadioValueChange(index),
-                      ),
-                      GestureDetector(
-                        onTap: () => _handleRadioValueChange(index),
-                        child: Text(
-                          roles[index].name,
-                          style: TextStyle(fontSize: Sc.text! * 1.5),
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              }),
-          SizedBox(
-            height: Sc.height! * 2,
-          ),
+          mainText(context),
+          SizedBox(height: Sc.height! * 2),
+          getList(context),
+          SizedBox(height: Sc.height! * 2),
           DefaultButtonRow(
               onPressed: onPressed, mainAxisAlignment: MainAxisAlignment.end)
+        ],
+      ),
+    );
+  }
+
+  Widget mainText(context) {
+    return Text(
+      widget.title,
+      style: Theme.of(context).textTheme.headline3!.copyWith(
+          color: Theme.of(context).primaryColor, fontSize: Sc.text! * 1.65),
+    );
+  }
+
+  Widget getList(context) {
+    return ListView.builder(
+        physics: BouncingScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: roles.length,
+        itemBuilder: getSheetElement);
+  }
+
+  Widget getSheetElement(BuildContext context, int index) {
+    return Padding(
+      padding: EdgeInsets.only(top: Sc.height!),
+      child: Row(
+        children: [
+          Radio(
+            activeColor: Theme.of(context).accentColor,
+            value: index,
+            groupValue: _radioValue,
+            onChanged: (val) => _handleRadioValueChange(index),
+          ),
+          GestureDetector(
+            onTap: () => _handleRadioValueChange(index),
+            child: Text(
+              roles[index].name,
+              style: TextStyle(fontSize: Sc.text! * 1.5),
+            ),
+          ),
         ],
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/init/helper/get_text.dart';
-import '../../../../core/widgets/error/custom_dialog.dart';
+import '../../../../core/widgets/alert_dialog/custom_dialog.dart';
 
 Future<String> editText(String initialText, BuildContext context) async {
   var text = initialText;

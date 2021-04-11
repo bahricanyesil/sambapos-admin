@@ -11,8 +11,13 @@ import 'sensitive_platform_widget.dart';
 class CustomDialog extends SensitivePlatformWidget {
   final Widget content;
   final String rightButtonText;
+  final Function action;
+  static void defaultFunc() {}
 
-  CustomDialog({required this.content, required this.rightButtonText});
+  CustomDialog(
+      {required this.content,
+      required this.rightButtonText,
+      this.action = defaultFunc});
 
   Future<void> show(BuildContext context) async {
     if (kIsWeb) {
@@ -60,7 +65,10 @@ class CustomDialog extends SensitivePlatformWidget {
     } else if (Platform.isIOS) {
       allButtons.add(
         CupertinoDialogAction(
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () {
+            Navigator.of(context).pop();
+            action();
+          },
           child: Text(
             rightButtonText,
             style: Theme.of(context).textTheme.headline4,
@@ -77,7 +85,10 @@ class CustomDialog extends SensitivePlatformWidget {
   void addButton(allButtons, context) {
     allButtons.add(
       TextButton(
-        onPressed: () => Navigator.of(context).pop(),
+        onPressed: () {
+          Navigator.of(context).pop();
+          action();
+        },
         child: Padding(
           padding: EdgeInsets.only(right: Sc.width!, bottom: Sc.height!),
           child: Text(

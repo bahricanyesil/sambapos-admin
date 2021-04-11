@@ -20,29 +20,34 @@ class PinItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: Sc.width! * 5.2,
-        height: Sc.width! * 5.2,
-        decoration: TextFormDeco().pinDeco(context),
-        alignment: Alignment.center,
-        child: TextFormField(
-            autofocus: true,
-            focusNode: focusNode,
-            controller: controller,
-            cursorColor: Colors.white,
-            maxLength: 1,
-            maxLengthEnforcement: MaxLengthEnforcement.enforced,
-            keyboardType: TextInputType.number,
-            inputFormatters: <TextInputFormatter>[
-              FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-            ],
-            onTap: () => changeIndex(index),
-            // ignore: unnecessary_lambdas
-            onChanged: (val) => setPin(val, index),
-            decoration: TextFormDeco().pinFormDeco(context),
-            style: TextStyle(
-                color: Colors.white.withOpacity(.9),
-                fontWeight: FontWeight.bold,
-                fontSize: Sc.text! * 2.8),
-            textAlign: TextAlign.center));
+      width: Sc.width! * 5.2,
+      height: Sc.width! * 5.2,
+      decoration: TextFormDeco().pinDeco(context),
+      alignment: Alignment.center,
+      child: TextFormField(
+        autofocus: true,
+        focusNode: focusNode,
+        controller: controller,
+        cursorColor: Colors.white,
+        maxLength: 1,
+        maxLengthEnforcement: MaxLengthEnforcement.enforced,
+        keyboardType: TextInputType.number,
+        inputFormatters: <TextInputFormatter>[
+          FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
+        ],
+        onTap: () => changeIndex(index),
+        onChanged: (val) => setPin(val, index),
+        decoration: TextFormDeco().pinFormDeco(context),
+        style: textStyle(),
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+
+  TextStyle textStyle() {
+    return TextStyle(
+        color: Colors.white.withOpacity(.9),
+        fontWeight: FontWeight.bold,
+        fontSize: Sc.text! * 2.8);
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../init/helper/get_text.dart';
+import '../init/screen/screen_config.dart';
 
 class FormComponent extends StatefulWidget {
   final GlobalKey<FormState> formKey;
@@ -20,22 +22,28 @@ class _FormComponentState extends State<FormComponent> {
     return Form(
       key: widget.formKey,
       child: TextFormField(
+        style: TextStyle(fontSize: Sc.text! * 1.6),
+        decoration: InputDecoration(
+          counterStyle: TextStyle(fontSize: Sc.text! * 1.55),
+        ),
         initialValue: widget.initialText,
         maxLength: 30,
         onChanged: (val) {
           widget.editText(val);
         },
-        validator: (val) {
-          if (val == null || val.isEmpty) {
-            return getText(context, 'cant_empty');
-          }
-          if (widget.initialText.contains('@')) {
-            if (!val.contains('@')) {
-              return getText(context, 'invalid_email');
-            }
-          }
-        },
+        validator: validationFunction,
       ),
     );
+  }
+
+  String? validationFunction(val) {
+    if (val == null || val.isEmpty) {
+      return getText(context, 'cant_empty');
+    }
+    if (widget.initialText.contains('@')) {
+      if (!val.contains('@')) {
+        return getText(context, 'invalid_email');
+      }
+    }
   }
 }

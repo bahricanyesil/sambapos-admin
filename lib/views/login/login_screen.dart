@@ -82,6 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
         margin: EdgeInsets.only(top: Sc.height! * (isEmail ? 6 : 3)),
         width: Sc.width! * 30,
+        height: Sc.height! * 6,
         child: RoundedTextForm(
             type: isEmail ? 'email' : 'password',
             hintText: getText(context, isEmail ? 'email' : 'password'),

@@ -36,14 +36,7 @@ class _AuthorizedHomeScreenState extends State<AuthorizedHomeScreen> {
             SizedBox(height: Sc.height! * 4),
             pinRow(),
             SizedBox(height: Sc.height! * 4),
-            Container(
-                height: Sc.height! * 60,
-                width: Sc.width! * 35,
-                child: NumberPad(
-                  setPin: setPinSetState,
-                  deletePin: deletePinSetState,
-                  confirmPin: confirmPinSetState,
-                ))
+            numberPad(context)
           ],
         ),
       ),
@@ -51,11 +44,25 @@ class _AuthorizedHomeScreenState extends State<AuthorizedHomeScreen> {
   }
 
   Widget pinText() {
-    return Text(getText(context, 'enter_pin'),
-        style: Theme.of(context)
-            .textTheme
-            .headline1!
-            .copyWith(fontSize: Sc.text! * 3.1));
+    return Text(
+      getText(context, 'enter_pin'),
+      style: Theme.of(context)
+          .textTheme
+          .headline1!
+          .copyWith(fontSize: Sc.text! * 3.1),
+    );
+  }
+
+  Widget numberPad(context) {
+    return Container(
+      height: Sc.height! * 60,
+      width: Sc.width! * 35,
+      child: NumberPad(
+        setPin: setPinSetState,
+        deletePin: deletePinSetState,
+        confirmPin: confirmPinSetState,
+      ),
+    );
   }
 
   Widget pinRow() {

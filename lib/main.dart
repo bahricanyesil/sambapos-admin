@@ -31,18 +31,20 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-        builder: (context, constraints) =>
-            OrientationBuilder(builder: (context, orientation) {
-              Sc().init(constraints, orientation);
-              return MultiProvider(
-                providers: [
-                  ChangeNotifierProvider(
-                    create: (_) => widget.appLanguage,
-                  ),
-                ],
-                child: App(),
-              );
-            }));
+      builder: (context, constraints) => OrientationBuilder(
+        builder: (context, orientation) {
+          Sc().init(constraints, orientation);
+          return MultiProvider(
+            providers: [
+              ChangeNotifierProvider(
+                create: (_) => widget.appLanguage,
+              ),
+            ],
+            child: App(),
+          );
+        },
+      ),
+    );
   }
 }
 

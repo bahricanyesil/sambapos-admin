@@ -5,8 +5,8 @@ import '../../../core/constants/navigation.dart';
 import '../../../core/dummy/dummy_user_data.dart';
 import '../../../core/init/helper/get_text.dart';
 import '../../../core/model/user_model.dart';
+import '../../../core/widgets/alert_dialog/custom_dialog.dart';
 import '../../../core/widgets/default_popup_text.dart';
-import '../../../core/widgets/error/custom_dialog.dart';
 
 void login(String email, String password, BuildContext context,
     GlobalKey<FormState> formKey) {
@@ -17,18 +17,19 @@ void login(String email, String password, BuildContext context,
   List<User> dummyUsers = users;
   var userIndex = dummyUsers.indexWhere((element) => element.email == email);
   if (userIndex == -1) {
-    CustomDialog(
-      content: DefaultPopupText(text: getText(context, 'user_not_found')),
-      rightButtonText: getText(context, 'ok'),
-    ).show(context);
+    showDialog(context, 'user_not_found');
   } else if (dummyUsers[userIndex].password != password) {
-    CustomDialog(
-      content: DefaultPopupText(text: getText(context, 'wrong_password')),
-      rightButtonText: getText(context, 'ok'),
-    ).show(context);
+    showDialog(context, 'wrong_password');
   } else if (dummyUsers[userIndex].authorityLevel == 2) {
     Navigator.of(context).pushNamed(authorizedHomeRoute);
   } else if (dummyUsers[userIndex].authorityLevel == 1) {
     Navigator.of(context).pushNamed(unauthorizedHomeRoute);
   }
+}
+
+void showDialog(context, String textKey) {
+  CustomDialog(
+    content: DefaultPopupText(text: getText(context, textKey)),
+    rightButtonText: getText(context, 'ok'),
+  ).show(context);
 }

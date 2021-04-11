@@ -12,10 +12,11 @@ void showChooseDialog(context, title, initialValue, setValue) {
             physics: BouncingScrollPhysics(),
             child: Container(
                 padding: EdgeInsets.only(
-                    left: Sc.width! * 3,
-                    top: Sc.width! * 3,
-                    right: Sc.width! * 3,
-                    bottom: MediaQuery.of(context).viewInsets.bottom + 20),
+                  left: Sc.width! * 3,
+                  top: Sc.width! * 3,
+                  right: Sc.width! * 3,
+                  bottom: MediaQuery.of(context).viewInsets.bottom + 20,
+                ),
                 child: infoChooseChild),
           ));
 }
