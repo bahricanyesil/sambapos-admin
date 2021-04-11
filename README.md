@@ -1,6 +1,6 @@
 # sambapos_admin
 
-A new Flutter project.
+A web admin panel demo for SambaPOS.
 
 ## Getting Started
 
