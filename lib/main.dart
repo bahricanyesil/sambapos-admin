@@ -7,12 +7,12 @@ import 'core/init/screen/screen_config.dart';
 import 'core/localization/localization_delegate.dart';
 import 'core/provider/language_provider.dart';
 import 'core/theme/light_theme.dart';
-import 'view/login/login_screen.dart';
+import 'views/login/login_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   var appLanguage = AppLanguage();
-  await appLanguage.fetchLocale();
+  appLanguage.fetchLocale();
   runApp(MyApp(
     appLanguage: appLanguage,
   ));

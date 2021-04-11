@@ -45,7 +45,7 @@ class NumberPad extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        customizedItem('<--'),
+        customizedItem('delete'),
         customizedItem('0'),
         customizedItem(getText(context, 'short_ok'), context)
       ],
@@ -54,7 +54,7 @@ class NumberPad extends StatelessWidget {
 
   Widget customizedItem(String text, [BuildContext? context]) {
     var onPressedFunc = () {
-      if (text == '<--') {
+      if (text == 'delete') {
         deletePin();
       } else if (context != null && text == getText(context, 'short_ok')) {
         confirmPin();

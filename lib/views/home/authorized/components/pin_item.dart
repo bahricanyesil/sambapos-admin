@@ -28,7 +28,6 @@ class PinItem extends StatelessWidget {
             autofocus: true,
             focusNode: focusNode,
             controller: controller,
-            obscureText: false,
             cursorColor: Colors.white,
             maxLength: 1,
             maxLengthEnforcement: MaxLengthEnforcement.enforced,

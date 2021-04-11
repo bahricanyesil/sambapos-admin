@@ -15,5 +15,16 @@
   "ok": "Okey",
   "enter_pin": "Enter The Pin Code",
   "short_ok": "Ok",
-  "wrong_pin": "You entered an invalid pin code."
+  "wrong_pin": "You entered an invalid pin code.",
+  "unauthorized": "Admin",
+  "authorized": "Super Admin",
+  "cancel": "Cancel",
+  "role": "Role",
+  "change": "Change",
+  "choose_role": "Choose a Role",
+  "authority": "Access Level",
+  "edit_user": "Edit User",
+  "pin_screen": "Pin Screen",
+  "correct_pin": "Correct pin. You are a super admin!",
+  "change_lang": "Türkçe Kullan"
 }

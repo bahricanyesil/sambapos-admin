@@ -26,12 +26,16 @@ class NumberItem extends StatelessWidget {
       highlightColor: Colors.transparent,
       hoverColor: Colors.transparent,
       height: Sc.height! * 12,
-      child: Text(
-        text,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            color: Colors.black87.withOpacity(.6), fontSize: Sc.text! * 1.8),
-      ),
+      child: text == 'delete'
+          ? Icon(Icons.arrow_back_outlined,
+              color: Colors.black87.withOpacity(.6), size: Sc.image! * 2)
+          : Text(
+              text,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.black87.withOpacity(.6),
+                  fontSize: Sc.text! * 1.8),
+            ),
     );
   }
 }

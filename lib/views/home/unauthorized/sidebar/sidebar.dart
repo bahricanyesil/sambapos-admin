@@ -6,6 +6,10 @@ import '../../../../core/widgets/divider.dart';
 import 'components/side_bar_item.dart';
 
 class SideBar extends StatelessWidget {
+  final Function changePage;
+  final String type;
+  const SideBar({required this.changePage, required this.type});
+
   @override
   Widget build(BuildContext context) {
     // If we have more items or dynamic structure, we can user list view instead of  column
@@ -26,7 +30,10 @@ class SideBar extends StatelessWidget {
     return Column(
       children: [
         SideBarItem(
-            onPressed: () => {}, icon: icon, title: getText(context, text)),
+            onPressed: () => {changePage(text)},
+            icon: icon,
+            title: getText(context, text),
+            isBold: type == text),
         DividerWidget(),
       ],
     );

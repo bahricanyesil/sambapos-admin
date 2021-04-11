@@ -15,5 +15,16 @@
   "ok": "Tamamdır",
   "enter_pin": "Pin Kodunu Girin",
   "short_ok": "Ok",
-  "wrong_pin": "Hatalı bir pin kodu girdiniz."
+  "wrong_pin": "Hatalı bir pin kodu girdiniz.",
+  "unauthorized": "Admin",
+  "authorized": "Süper Admin",
+  "cancel": "İptal Et",
+  "role": "Rol",
+  "change": "Değiştir",
+  "choose_role": "Bir Rol Seç",
+  "authority": "Yetki Seviyesi",
+  "edit_user": "Kullanıcı Düzenle",
+  "pin_screen": "Pin Ekranı",
+  "correct_pin": "Doğru pin kodu! Siz süper bir adminsiniz.",
+  "change_lang": "Convert to English"
 }

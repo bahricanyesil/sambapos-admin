@@ -27,7 +27,7 @@ class _AuthorizedHomeScreenState extends State<AuthorizedHomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:
-          getAppBar(context: context, title: getText(context, 'home_screen')),
+          getAppBar(context: context, title: getText(context, 'pin_screen')),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -52,7 +52,10 @@ class _AuthorizedHomeScreenState extends State<AuthorizedHomeScreen> {
 
   Widget pinText() {
     return Text(getText(context, 'enter_pin'),
-        style: Theme.of(context).textTheme.headline1);
+        style: Theme.of(context)
+            .textTheme
+            .headline1!
+            .copyWith(fontSize: Sc.text! * 3.1));
   }
 
   Widget pinRow() {

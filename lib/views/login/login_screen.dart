@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../core/constants/navigation.dart';
 import '../../core/init/helper/get_text.dart';
 import '../../core/init/screen/screen_config.dart';
 import '../../core/widgets/divider.dart';
@@ -105,7 +104,10 @@ class _LoginScreenState extends State<LoginScreen> {
     return Column(
       children: [
         Text(getText(context, 'welcome'),
-            style: Theme.of(context).textTheme.headline1),
+            style: Theme.of(context)
+                .textTheme
+                .headline1!
+                .copyWith(fontSize: Sc.text! * 4)),
         Container(
           constraints: BoxConstraints(maxWidth: Sc.width! * 25),
           padding: EdgeInsets.only(top: Sc.height! * 2.6),

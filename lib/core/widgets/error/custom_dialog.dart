@@ -9,7 +9,7 @@ import '../../init/screen/screen_config.dart';
 import 'sensitive_platform_widget.dart';
 
 class CustomDialog extends SensitivePlatformWidget {
-  final String content;
+  final Widget content;
   final String rightButtonText;
 
   CustomDialog({required this.content, required this.rightButtonText});
@@ -31,11 +31,7 @@ class CustomDialog extends SensitivePlatformWidget {
   @override
   Widget buildAndroidWidget(BuildContext context) {
     return AlertDialog(
-      content: Text(
-        content,
-        style: Theme.of(context).textTheme.headline4,
-        textAlign: TextAlign.center,
-      ),
+      content: content,
       actions: _setDialogButton(context),
     );
   }
@@ -43,11 +39,7 @@ class CustomDialog extends SensitivePlatformWidget {
   @override
   Widget buildIOSWidget(BuildContext context) {
     return CupertinoAlertDialog(
-      content: Text(
-        content,
-        style: Theme.of(context).textTheme.headline4,
-        textAlign: TextAlign.center,
-      ),
+      content: content,
       actions: _setDialogButton(context),
     );
   }
@@ -55,11 +47,7 @@ class CustomDialog extends SensitivePlatformWidget {
   @override
   Widget buildMainWidget(BuildContext context) {
     return AlertDialog(
-      title: Text(
-        content,
-        style: Theme.of(context).textTheme.headline4,
-        textAlign: TextAlign.center,
-      ),
+      title: content,
       actions: _setDialogButton(context),
     );
   }
